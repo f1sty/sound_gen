@@ -59,7 +59,7 @@ defmodule SoundGen.Note do
       }) do
     with shift when is_integer(shift) <- shift(note, sharp) do
       base_frequency = @a4 * 2 ** (shift / 12)
-      frequency = base_frequency * 2 ** (4 - octave)
+      frequency = base_frequency * 2 ** (octave - 4)
       {frequency, duration}
     else
       error -> error
